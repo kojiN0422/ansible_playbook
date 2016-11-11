@@ -13,3 +13,5 @@
 
   roles:
     - web
+    - db
+
