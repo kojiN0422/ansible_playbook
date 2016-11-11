@@ -1,0 +1,12 @@
+---
+- name: ロックファイル
+  stat: path="/vagrant/lock.file"
+  register: is_file
+
+- include: "{{common.work_dir}}/tasks/remi{{remi.version}}.yml"
+  when:
+    - remi.enable
+    - not is_file.stat.exists
+
+- name: ロックファイル
+  shell: touch /vagrant/lock.file

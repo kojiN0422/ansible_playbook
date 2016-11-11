@@ -1,0 +1,12 @@
+common:
+  work_dir: roles/common
+
+web:
+  work_dir: roles/web
+  php:
+    composer:
+      enable: true
+
+remi:
+  enable: true
+  version: 70

@@ -1,0 +1,2 @@
+[webservers]
+192.168.33.100 ansbile_ssh_user=root ansible_ssh_pass=vagrant

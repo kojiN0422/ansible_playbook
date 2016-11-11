@@ -1,0 +1,8 @@
+
+- name: copy Remi repository
+  copy:
+    src: "{{common.work_dir}}/files/remi-release-7.rpm"
+    dest: /tmp
+
+- name: install remi repository
+  shell: rpm -ih /tmp/remi-release-7.rpm

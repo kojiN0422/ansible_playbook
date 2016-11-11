@@ -1,0 +1,32 @@
+---
+- name: Install PHP 7.0
+  yum: name={{ item }} state=present
+  with_items:
+    - php
+    - php-cli
+    - php-common
+    - php-devel
+    - php-json
+    - php-mysql
+    - php-mbstring
+    - php-mcrypt
+    - php-opcache
+    - php-pdo
+    - php-pear
+    - php-pecl-memcached
+    - php-pecl-zip
+    - php-process
+  tags:
+    - php
+
+- name: Transfer custom php.ini
+  copy: src=roles/web/files/custom_php.ini dest=/etc/php.d/custom_php.ini
+  tags:
+    - php
+
+- name: Install composer.phar
+  shell: curl -sS https://getcomposer.org/installer
+          | php -- --install-dir=/usr/bin --filename=composer creates=/usr/bin/composer
+  tags:
+    - php
+  when: web.php.composer.enable

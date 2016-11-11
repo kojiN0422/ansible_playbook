@@ -1,0 +1,18 @@
+---
+- name: register lockfile
+  stat: path="/vagrant/lock.file"
+  register: is_file
+
+- name: Apache install
+  include: httpd.yml
+
+- name: php70 install
+  include: php{{remi.version}}.yml
+  when: remi.enable
+
+- name: php latest install
+  include: php_latest.yml
+  when: not remi.enable
+
+- name: create lockfile
+  shell: touch /vagrant/lock.file
