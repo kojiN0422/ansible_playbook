@@ -1,12 +1,24 @@
+remi:
+  enable: true
+  version: 70
+
 common:
+  enable: false
   work_dir: roles/common
 
 web:
+  enable: false
   work_dir: roles/web
   php:
     composer:
       enable: true
 
-remi:
-  enable: true
-  version: 70
+db:
+  enable: false
+  work_dir: roles/db
+
+wordpress:
+  enabel: true
+  url: https://ja.wordpress.org/
+  pkg_name: wordpress-4.6.1-ja.tar.gz
+  work_dir: /usr/local/src/

@@ -1,0 +1,10 @@
+# - name: copy Remi repository
+#   copy:
+#     src: "{{db.work_dir}}/files/mysql57-community-release-el7-9.noarch.rpm"
+#     dest: /tmp
+#
+# - name: install remi repository
+#   shell: rpm -ih /tmp/mysql57-community-release-el7-9.noarch.rpm
+
+- name: mysql install yum
+  yum: name="mysql-community-server" state=latest

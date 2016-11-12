@@ -1,17 +1,27 @@
 ---
-- name: apply common configuration to all nodes
-  hosts: all
-  remote_user: root
+# - name: apply common configuration to all nodes
+#   hosts: all
+#   remote_user: root
+#   roles:
+#     - common
+#
+# - name: install and configure the web
+#   hosts: webservers
+#   become: root
+#   remote_user: root
+#   roles:
+#     - web
 
-  roles:
-    - common
-
-- name: install and configure the web
+- name: install the db
   hosts: webservers
   become: root
   remote_user: root
-
   roles:
-    - web
     - db
 
+# - name: install and configure the wordpress
+#   hosts: webservers
+#   become: root
+#   remote_user: root
+#   roles:
+#     - wordpress

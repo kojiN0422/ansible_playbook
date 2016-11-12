@@ -1,2 +1,3 @@
 ---
-# tasks file for db
+- name: mysql install
+  include: mysql.yml

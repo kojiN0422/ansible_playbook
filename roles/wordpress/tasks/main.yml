@@ -1,0 +1,12 @@
+---
+- name: copy wordpress
+  get_url:
+    url: "{{wordpress.url}}{{wordpress.pkg_name}}"
+    dest: "{{wordpress.work_dir}}"
+
+- name: tar
+  shell: tar -xzf {{wordpress.work_dir}}{{wordpress.pkg_name}}
+
+- name: copy
+  become: root
+  shell: mv /root/wordpress/* /var/www/html
